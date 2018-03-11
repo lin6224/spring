@@ -10,8 +10,8 @@
 	
 	<!-- configuration bean by constructor-->
 	<bean id = "car" class = "ca.jae.spring.beans.Car">
-		<constructor-arg value = "honda" index = "0"></constructor-arg>
-		<constructor-arg value = "3000"  index = "1"></constructor-arg>
+		<constructor-arg value = "honda" index = "0" type = "java.lang.String"></constructor-arg>
+		<constructor-arg value = "3000"  index = "1" type = "int"></constructor-arg>
 	</bean>
 
 </beans>
