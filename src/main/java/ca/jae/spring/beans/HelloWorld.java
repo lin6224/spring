@@ -7,6 +7,10 @@ public class HelloWorld {
 		return name;
 	}
 
+	public HelloWorld() {
+		
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

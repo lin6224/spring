@@ -3,12 +3,9 @@ package ca.jae.hellospring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import ca.jae.spring.beans.Car;
 import ca.jae.spring.beans.HelloWorld;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
@@ -19,5 +16,10 @@ public class App
     	HelloWorld hw = (HelloWorld)ctx.getBean("helloworld");
     	// call method
     	hw.hello();
+    	
+    	
+    	Car car = ctx.getBean(Car.class);
+    	System.out.println(car);
+    	
     }
 }
