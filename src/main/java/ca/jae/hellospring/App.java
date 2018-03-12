@@ -17,7 +17,7 @@ public class App
     	// call method
     	hw.hello();
     	
-    	
+    	// get bean by java class file
     	Car car = ctx.getBean(Car.class);
     	System.out.println(car);
     	

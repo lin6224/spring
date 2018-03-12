@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<!-- configuration bean -->
 	<bean id = "helloworld" class = "ca.jae.spring.beans.HelloWorld">
@@ -12,6 +14,43 @@
 	<bean id = "car" class = "ca.jae.spring.beans.Car">
 		<constructor-arg value = "honda" index = "0" type = "java.lang.String"></constructor-arg>
 		<constructor-arg value = "3000"  index = "1" type = "int"></constructor-arg>
+	</bean>	
+	
+	<bean id = "person" class = "ca.jae.spring.beans.Person">
+		<property name="name" value = "jae"></property>
+		<property name="age" value = "26"></property>
+		<property name="car" ref="car"></property>
 	</bean>
+	
+	<bean id = "person1" class = "ca.jae.spring.beans.Person">
+		<property name="name" value = "jae"></property>
+		<property name="age" value = "26"></property>
+		<property name="car" ref="car"></property>
+	</bean>
+	
+	<bean id="user" class="ca.jae.spring.beans.User">
+		<property name="userName" value="Jack"></property>
+		<property name="cars">
+			<!--  list  -->
+			<list>
+				<ref bean="car"/>
+				<ref bean="car"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- collection bean -->
+	<util:list id="cars">
+		<ref bean="car"/>
+		<ref bean="car2"/>
+	</util:list>
+	
+	<bean id="user2" class="ca.jae.spring.beans.User">
+		<property name="userName" value="Rose"></property>		
+		<property name="cars" ref="cars"></property>
+	</bean>
+	
+	<bean id="user4" parent="user" p:userName="Bob"></bean>
+	
 
 </beans>
